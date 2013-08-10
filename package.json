@@ -1,0 +1,10 @@
+{
+  "name": "html5bootnode",
+  "description": "A ready-to-code set of asset and configuration files to begin coding in HTML5, with requirejs, jquery, modernizr and sass (compass)",
+  "version": "0.1.0",
+  "author": "Stanislas Ormières",
+  "dependencies": {
+    "express": "~3.3.4"
+  },
+  "devDependencies": {}
+}
