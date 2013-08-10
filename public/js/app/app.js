@@ -2,6 +2,7 @@ define(function(require, exports, module) {
     var _ = require('underscore'),
     	$ = require('jquery')
 	logger = require("logger"),
+	qtip = require("qtip"),
 	cm = require("cookieManager");
 
     logger.log('Main module loaded');
@@ -16,6 +17,13 @@ define(function(require, exports, module) {
 	} else {
 		cm.create('lastLogin', new Date());
 	}
+	$('h1').qtip({
+	    content: {
+	        title: 'qTip2 is a wonderful jQuery plugin!',
+		text: 'qTip2 has been loaded!'
+	    },
+	    position: { my: 'top center', at: 'bottom center' }
+	});
     };
 
     $(function() {
