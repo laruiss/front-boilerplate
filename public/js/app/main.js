@@ -7,6 +7,7 @@ requirejs.config({
         'text':             '//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.5/text.min',
         'logLevels':        'util/logLevels',
         'logger':           'util/logger',
+        'cookieManager':    'util/cookieManager',
         'logConf':          'app/log-conf'
     },
 });
