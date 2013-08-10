@@ -1,7 +1,7 @@
 html5bootstrap
 ==============
 
-A ready-to-code set of files to begin coding right away with all the tools the open source community to offer in its great generosity.
+A ready-to-code set of files to begin coding right away with all the tools the open source community offers in its great generosity.
 
 # Why node ?
 
