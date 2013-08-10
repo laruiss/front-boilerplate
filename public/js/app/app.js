@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     var _ = require('underscore'),
-    	domready = require('domReady');
+    	$ = require('jquery');
 
 
     var bootstrap = function ()
@@ -8,7 +8,7 @@ define(function(require, exports, module) {
     	// beginning of app code here
     };
 
-    domready(function() {
+    $(function() {
         bootstrap();
     });
 });
