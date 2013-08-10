@@ -5,7 +5,7 @@ A ready-to-code set of files to begin coding right away with all the tools the o
 
 # Why node ?
 
-Because it is fun and beacause it is realy simple to install and make it work.
+Because it is fun and because it is really simple to install and make it work.
 
 # If node cannot be used ?
 
