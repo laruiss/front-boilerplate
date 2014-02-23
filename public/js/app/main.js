@@ -10,7 +10,8 @@ requirejs.config({
         'logLevels':      'util/logLevels',
         'logger':         'util/logger',
         'cookieManager':  'util/cookieManager',
+        'app':            'app/app',
         'logConf':        'app/log-conf'
     },
 });
-requirejs(["app/app"]);
+requirejs(["app"]);
