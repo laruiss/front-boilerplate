@@ -5,7 +5,7 @@ var LIVERELOAD_PORT = 35729,
 	},
 // change this to '0.0.0.0' to access the server from outside
 // change this to 'localhost' to access the server from inside only
-	hostname = 'localhost';
+	hostname = '0.0.0.0';
 
 module.exports = function (grunt) {
 	'use strict';
@@ -108,6 +108,56 @@ module.exports = function (grunt) {
 			}
 		},
 
+		// Build a custom modernizr.js file
+		// Grunt plugin Homepage: https://github.com/Modernizr/grunt-modernizr
+		modernizr: {
+		
+			dist: {
+				"devFile" : "public/bower_components/modernizr/modernizr.js",
+		
+				"outputFile" : "build/bower_components/modernizr/modernizr.js",
+		
+				"extra" : {
+					"shiv" : true,
+					"printshiv" : false,
+					"load" : true,
+					"mq" : false,
+					"cssclasses" : true
+				},
+		
+				"extensibility" : {
+					"addtest" : false,
+					"prefixed" : false,
+					"teststyles" : false,
+					"testprops" : false,
+					"testallprops" : false,
+					"hasevents" : false,
+					"prefixes" : false,
+					"domprefixes" : false
+				},
+		
+				"uglify" : true,
+		
+				// Define any tests you want to implicitly include.
+				"tests" : [],
+		
+				// By default, this task will crawl your project for references to Modernizr tests.
+				// Set to false to disable.
+				"parseFiles" : true,
+		
+				// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
+				// You can override this by defining a "files" array below.
+				"files" : {
+					"src": [
+						'build/js/**/*.js',
+						'build/css/*.css'
+					]
+				},
+		
+			}
+		
+		},
+
 		// Open the default browser to test the ouput (either "public" or "build", serves for both)
 		// Grunt plugin Homepage: https://github.com/jsoverson/grunt-open
 		open: {
@@ -124,7 +174,8 @@ module.exports = function (grunt) {
 					"appDir": "public/",
 					"dir": "build/",
 					"baseUrl": "js/",
-					"optimize": "uglify",
+					//"optimize": "uglify",
+					"fileExclusionRegExp": new RegExp("^(src|.*LICENSE\.txt|bower.json|test|.*\.md|feature-detects|media)$"),
 					"paths": {
 						"jquery": "empty:",
 						"underscore": "empty:",
@@ -149,7 +200,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', function (target) {
 		grunt.task.run([
 			'clean:build',
-			'requirejs'
+			'requirejs',
+			'modernizr'
 		]);
 			
 	});

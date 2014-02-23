@@ -1,0 +1,35 @@
+{
+  "name": "html5bootstrap",
+  "version": "0.0.5",
+  "homepage": "https://github.com/laruiss/html5bootstrap",
+  "authors": [
+    "Stanislas Ormières <laruiss@gmail.com>"
+  ],
+  "description": "A ready-to-code set of files to begin coding right away with all the tools the open source community offers in its great generosity.",
+  "main": "public/index.html",
+  "keywords": [
+    "html5",
+    "grunt",
+    "tools",
+    "test",
+    "server",
+    "node",
+    "requirejs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-legacy": "jquery#1.11.0",
+    "jquery-modern": "jquery#~2.1.0",
+    "requirejs": "~2.1.11",
+    "lodash": "~2.4.1",
+    "modernizr": "~2.7.1"
+  }
+}
