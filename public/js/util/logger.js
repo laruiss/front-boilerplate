@@ -4,12 +4,12 @@ define(function(require, exports, module) {
 		logConf = require('logConf'),
 		method,
 		noop = function () {},
-		length = methods.length,
 		console = window.console || {},
 		methods = [ 'assert', 'clear', 'count', 'debug', 'dir', 'dirxml',
 			'error', 'exception', 'group', 'groupCollapsed', 'groupEnd',
 			'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table',
-			'time', 'timeEnd', 'timeStamp', 'trace', 'warn' ];
+			'time', 'timeEnd', 'timeStamp', 'trace', 'warn' ],
+		length = methods.length;
 
 	while (length--) {
 		method = methods[length];
