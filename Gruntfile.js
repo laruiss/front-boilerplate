@@ -174,8 +174,8 @@ module.exports = function (grunt) {
 					"appDir": "public/",
 					"dir": "build/",
 					"baseUrl": "js/",
-					//"optimize": "uglify",
-					"fileExclusionRegExp": new RegExp("^(src|.*LICENSE\.txt|bower.json|test|.*\.md|feature-detects|media)$"),
+					"optimize": "uglify",
+					"fileExclusionRegExp": new RegExp("^(src|.*LICENSE\\.txt|bower\\.json|test|.*\\.md|feature-detects|media)$"),
 					"paths": {
 						"jquery": "empty:",
 						"underscore": "empty:",
