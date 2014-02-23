@@ -55,6 +55,4 @@ And then go to http://localhost:8007 with your browser
 
 # TODO
 
-  * Implement bower
-  * Add local fallbacks for CDN failure(s) with bower components (jquery, requirejs, underscore or lodash...)
   * Add more comments, maybe?
