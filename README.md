@@ -55,4 +55,5 @@ And then go to http://localhost:8007 with your browser
 
 # TODO
 
-  * Add more comments, maybe?
+  * Add gulp tools
+  * Add browserify tools
