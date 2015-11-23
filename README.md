@@ -48,7 +48,7 @@ $ cd html5bootstrap
 
 $ npm install
 
-$ nmp start
+$ npm start
 ```
 
 And then go to http://localhost:8007 with your browser
