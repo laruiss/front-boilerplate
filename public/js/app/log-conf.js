@@ -1,4 +1,2 @@
-define(["logLevels"], function(logLevels) {
-        return {logLevel: logLevels.INFO};
-    }
-);
+var logLevels = require('../util/logLevels');
+module.exports = {logLevel: logLevels.INFO};

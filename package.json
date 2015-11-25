@@ -1,26 +1,38 @@
 {
-  "name": "html5bootnode",
+  "name": "front-boilerplate",
   "description": "A ready-to-code set of asset and configuration files to begin coding in HTML5, with requirejs, jquery, modernizr and sass (compass)",
   "version": "0.1.0",
   "scripts": {
-    "start": "browser-sync start --server public --files='**/*.*'"
+    "start": "gulp"
   },
   "author": "Stanislas Ormières",
   "dependencies": {
-    "express": "~3.3.4"
+    "express": "~3.3.4",
+    "jquery": "^2.1.4"
   },
   "devDependencies": {
+    "body-parser": "^1.14.1",
     "browser-sync": "^2.10.0",
-    "connect-livereload": "~0.3.2",
-    "grunt": "~0.4.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-compass": "~0.7.1",
-    "grunt-contrib-connect": "~0.6.0",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-modernizr": "~0.5.1",
-    "grunt-open": "~0.2.3",
-    "matchdep": "~0.3.0"
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-less": "^3.0.5",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-modernizr": "0.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "matchdep": "~0.3.0",
+    "morgan": "^1.6.1",
+    "require-dir": "^0.3.0",
+    "stringify": "^3.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

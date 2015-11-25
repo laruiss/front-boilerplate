@@ -1,4 +1,5 @@
-// RequireJS config
+/* global requirejs */
+'use strict';
 requirejs.config({
     baseUrl: 'js/',
     paths: {
@@ -21,6 +22,10 @@ requirejs.config({
         'logConf':        'app/log-conf',
         'cookieManager':  'util/cookieManager',
         'app':            'app/app'
+    },
+    shim: {
+        'qtip': ['jquery']
     }
 });
-requirejs(["app"]);
+
+requirejs(['app']);

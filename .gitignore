@@ -2,3 +2,4 @@
 node_modules/
 build/
 public/bower_components/
+target/
