@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     browserify  = require('browserify'),
     stringify  = require('stringify'),
-    es6ify = require('es6ify'),
     eslint  = require('gulp-eslint'),
     buffer = require('vinyl-buffer'),
     source = require('vinyl-source-stream'),
@@ -36,8 +35,7 @@ gulp.task('browserify',['js', 'lint'],function(){
         standalone: '_widget',
         debug: true
     })
-    .add(es6ify.runtime)
-    .transform(require('es6ify').configure(/^(?!.*node_modules)+.+\.js$/))
+    .transform('babelify', {presets: ['es2015']})
     .transform(stringify({
         extensions: [
             '.html'

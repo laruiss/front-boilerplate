@@ -5,7 +5,7 @@ A ready-to-code set of files to begin coding right away with all the tools the o
 and everything explained in comments
 
 Uses [gulp](http://gulpjs.com/), [sass](http://sass-lang.com/), [browserify](http://browserify.org/), [browserSync](http://www.browsersync.io),
-[modernizr](https://modernizr.com/), [es6ify](https://github.com/thlorenz/es6ify)
+[modernizr](https://modernizr.com/), [babelify](https://github.com/babel/babelify)
 
 # Usage
 
