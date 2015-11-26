@@ -1,2 +1,2 @@
 var logLevels = require('../util/logLevels');
-module.exports = {logLevel: logLevels.INFO};
+export default {logLevel: logLevels.INFO};

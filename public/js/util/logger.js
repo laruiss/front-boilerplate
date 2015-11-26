@@ -33,4 +33,4 @@ if (logConf && logConf.logLevel < logLevels.WARN) {
     console.warn = noop;
 }
 
-module.exports = console;
+export default console;
