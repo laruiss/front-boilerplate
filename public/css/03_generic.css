@@ -1,0 +1,5 @@
+@import "normalize.css/normalize";
+
+body {
+    font-size: var(--base-font-size);
+}

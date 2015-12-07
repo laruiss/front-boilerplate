@@ -1,0 +1,21 @@
+.layout {
+    layout-wrapper: var(--layout-gutter);
+}
+
+.layout__item {
+    layout-item: var(--layout-gutter);
+}
+
+.input-wrapper {
+    display: block;
+    border: none;
+    &--submit {
+        margin: 10px 0;
+    }
+}
+
+.input {
+    line-height: var(--base-line-height);
+    border-radius: 3px;
+    padding: 5px;
+}
