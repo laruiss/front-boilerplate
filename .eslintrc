@@ -2,7 +2,7 @@
     "rules": {
         "indent": [
             2,
-            4
+            2
         ],
         "quotes": [
             2,
@@ -32,7 +32,8 @@
         "blockBindings": true,
         "forOf": true,
         "objectLiteralShorthandProperties": true,
-        "objectLiteralShorthandMethods": true
+        "objectLiteralShorthandMethods": true,
+        "jsx": true
     },
     "env": {
         "browser": true,
