@@ -2,6 +2,8 @@
 import $ from 'jquery';
 import logger from '../util/logger.js';
 import cm from '../util/cookieManager.js';
+import '../../css/main.css';
+
 
 logger.log('Main module loaded');
 

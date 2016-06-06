@@ -1,20 +1,17 @@
 {
   "name": "front-boilerplate",
-  "description": "A ready-to-code set of asset and configuration files to begin coding in HTML5, with jquery, modernizr and sass (compass)",
+  "description": "A ready-to-code set of asset and configuration files to begin coding in HTML5, with modernizr, webpack, PostCSS",
   "version": "0.3.0",
   "scripts": {
     "start": "npm run build && npm run dev",
     "dev": "browser-sync start --server target --files 'target/**/*.*'",
-    "build": "npm run build:html && npm run build:css && npm run build:js",
-    "build:html": "mkdir -p target && cp public/index.html target/",
-    "build:css": "compass compile",
-    "build:js": "webpack",
-    "watch": "node watcher.js"
+    "build": "webpack",
+    "lint": "eslint public/app/**/*.js public/util/**/*.js",
+    "watch": "webpack --watch --colors"
   },
   "author": "Stanislas Ormières",
   "dependencies": {
-    "express": "~3.3.4",
-    "jquery": "^2.1.4"
+    "normalize.css": "^3.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
@@ -22,10 +19,13 @@
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.5.0",
     "browser-sync": "^2.10.0",
+    "css-loader": "^0.23.1",
     "cssnano": "^3.3.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.19.0",
     "modernizr-webpack-plugin": "^1.0.5",
-    "normalize.css": "^3.0.3",
     "postcss": "^5.0.12",
     "postcss-color-rgba-fallback": "^2.0.0",
     "postcss-conditionals": "^2.0.0",
@@ -35,8 +35,10 @@
     "postcss-for": "^2.0.1",
     "postcss-import": "^7.1.3",
     "postcss-inuity-layout": "0.0.2",
+    "postcss-loader": "^0.9.1",
     "postcss-mixins": "^3.0.1",
     "postcss-nested": "^1.0.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }
