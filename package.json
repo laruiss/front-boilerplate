@@ -39,6 +39,9 @@
     "postcss-mixins": "^3.0.1",
     "postcss-nested": "^1.0.0",
     "style-loader": "^0.13.1",
+    "stylelint": "^6.5.1",
+    "stylelint-config-suitcss": "^6.0.0",
+    "stylelint-webpack-plugin": "^0.2.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }

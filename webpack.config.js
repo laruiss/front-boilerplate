@@ -10,15 +10,16 @@ var cssNext = require('postcss-cssnext');
 var inuityLayout = require('postcss-inuity-layout');
 var colorRgbaFallback = require('postcss-color-rgba-fallback');
 var comments = require('postcss-discard-comments');
+var stylelint = require('stylelint');
 var path = require('path');
 
 var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
 var modernizrConfig = {
   filename: './target/js/lib/modernizr.js'
 };
-
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var StyleLintPlugin = require('stylelint-webpack-plugin');
 
 var production = process.argv.indexOf('--production') > -1;
 
@@ -56,7 +57,13 @@ module.exports = {
       title: 'Docteur',
       template: 'public/index.html'
     }),
-    new ExtractTextPlugin('main.css')
+    new ExtractTextPlugin('css/main.css'),
+    new StyleLintPlugin({
+      configFile: '.stylelintrc',
+      context: 'inherits from webpack',
+      files: '**/*.css',
+      failOnError: true
+    })
   ],
   postcss: function (webpack) {
     return [

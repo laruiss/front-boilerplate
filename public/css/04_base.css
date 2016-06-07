@@ -1,23 +1,23 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html{
-    background-color: #555;
-    color: #333;
+html {
+  background-color: #555;
+  color: #333;
 }
 
-.wrapper{
-    background-color: #fff;
-    max-width: 960px;
-    padding: 0 24px;
-    margin: 0 auto;
+.wrapper {
+  background-color: #fff;
+  max-width: 960px;
+  padding: 0 24px;
+  margin: 0 auto;
 }
 
 h1 {
-    text-align: center
+  text-align: center
 }
 
 footer {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
