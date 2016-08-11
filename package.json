@@ -3,7 +3,7 @@
   "description": "A ready-to-code set of asset and configuration files to begin coding in HTML5, with modernizr, webpack, PostCSS",
   "version": "0.3.0",
   "scripts": {
-    "start": "npm run build && npm run dev",
+    "start": "run-p dev watch",
     "dev": "browser-sync start --server target --files 'target/**/*.*'",
     "build": "webpack",
     "lint": "eslint public/app/**/*.js public/util/**/*.js",
@@ -11,7 +11,8 @@
   },
   "author": "Stanislas Ormières",
   "dependencies": {
-    "normalize.css": "^3.0.3"
+    "normalize.css": "^3.0.3",
+    "npm-run-all": "^2.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
