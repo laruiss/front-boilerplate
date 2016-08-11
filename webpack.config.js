@@ -47,6 +47,9 @@ module.exports = {
         presets: ['react', 'es2015', 'stage-0']
       }
     }, {
+      test: /\.png/,
+      loader: 'file'
+    }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
     }]
