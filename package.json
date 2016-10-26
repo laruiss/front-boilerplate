@@ -1,12 +1,14 @@
 {
   "name": "front-boilerplate",
   "description": "A ready-to-code set of asset and configuration files to begin coding in HTML5, with modernizr, webpack, PostCSS",
-  "version": "0.3.0",
+  "version": "1.0.1",
   "scripts": {
     "start": "run-p dev watch",
     "dev": "browser-sync start --server target --files 'target/**/*.*'",
     "build": "webpack",
-    "lint": "eslint public/app/**/*.js public/util/**/*.js",
+    "lint": "run-p lint:*",
+    "lint:style": "stylelint -s css public/css/**/*.css",
+    "lint:js": "eslint public/js/app/**/*.js public/js/util/**/*.js",
     "watch": "webpack --watch --colors"
   },
   "author": "Stanislas Ormières",
@@ -41,7 +43,8 @@
     "postcss-mixins": "^3.0.1",
     "postcss-nested": "^1.0.0",
     "style-loader": "^0.13.1",
-    "stylelint": "^6.5.1",
+    "stylelint": "^6.9.0",
+    "stylelint-config-standard": "^12.0.0",
     "stylelint-config-suitcss": "^6.0.0",
     "stylelint-webpack-plugin": "^0.2.0",
     "webpack": "^1.12.9",

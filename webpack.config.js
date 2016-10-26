@@ -10,7 +10,7 @@ var cssNext = require('postcss-cssnext');
 var inuityLayout = require('postcss-inuity-layout');
 var colorRgbaFallback = require('postcss-color-rgba-fallback');
 var comments = require('postcss-discard-comments');
-var stylelint = require('stylelint');
+// var stylelint = require('stylelint');
 var path = require('path');
 
 var ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
@@ -61,12 +61,12 @@ module.exports = {
       template: 'public/index.html'
     }),
     new ExtractTextPlugin('css/main.css'),
-    new StyleLintPlugin({
-      configFile: '.stylelintrc',
-      context: 'inherits from webpack',
-      files: '**/*.css',
-      failOnError: true
-    })
+    // new StyleLintPlugin({
+    //   configFile: '.stylelintrc',
+    //   context: 'inherits from webpack',
+    //   files: '**/*.css',
+    //   failOnError: true
+    // })
   ],
   postcss: function (webpack) {
     return [
