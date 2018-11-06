@@ -1,54 +1,259 @@
 {
   "name": "front-boilerplate",
-  "description": "A ready-to-code set of asset and configuration files to begin coding in HTML5, with modernizr, webpack, PostCSS",
+  "description": "A ready-to-code set of asset and configuration files to begin coding a modern SPA",
   "version": "1.0.1",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "run-p server watch",
-    "server": "browser-sync start --server target --files 'target/**/*.*'",
-    "build": "webpack",
+    "start": "run-p server dev",
+    "build": "NODE_ENV=production webpack",
+    "preflow": "npm run -s lint",
+    "flow": "flow",
+    "flow:watch": "chokidar 'src/**/*.js' 'flow-typed/**' -c 'yarn flow'",
+    "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -x 'src/index.js' --threshold 80",
+    "flow:coverage:html": "flow-coverage-report -i 'src/**/*.js' -x 'src/index.js' -t html --threshold 80",
+    "format": "prettier-eslint --write 'src/**/*.*js*'",
+    "server": "json-server --watch db.json --port 3003",
+    "dev": "webpack-dev-server",
     "lint": "run-p lint:*",
-    "lint:style": "stylelint -s css public/css/**/*.css",
-    "lint:js": "eslint public/js/app/**/*.js public/js/util/**/*.js",
-    "watch": "webpack --watch --colors"
+    "lint:style": "stylelint 'src/**/*.css' 'src/**/*.js'",
+    "lint:js": "eslint src/**/*.js",
+    "pretest": "npm run format",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run -s lint",
+      "pre-push": "npm test"
+    }
   },
   "author": "Stanislas Ormières",
-  "dependencies": {
-    "normalize.css": "^3.0.3",
-    "npm-run-all": "^2.3.0"
-  },
+  "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^6.1.2",
-    "babel-core": "^6.3.15",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babel-preset-stage-0": "^6.5.0",
-    "browser-sync": "^2.10.0",
-    "css-loader": "^0.23.1",
-    "cssnano": "^3.3.2",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.19.0",
-    "modernizr-webpack-plugin": "^1.0.5",
-    "postcss": "^5.0.12",
-    "postcss-color-rgba-fallback": "^2.0.0",
-    "postcss-conditionals": "^2.0.0",
-    "postcss-cssnext": "^2.2.0",
-    "postcss-discard-comments": "^2.0.2",
-    "postcss-each": "^0.7.1",
-    "postcss-for": "^2.0.1",
-    "postcss-import": "^7.1.3",
-    "postcss-inuity-layout": "0.0.2",
-    "postcss-loader": "^0.9.1",
-    "postcss-mixins": "^3.0.1",
-    "postcss-nested": "^1.0.0",
-    "style-loader": "^0.13.1",
-    "stylelint": "^6.9.0",
-    "stylelint-config-standard": "^12.0.0",
-    "stylelint-config-suitcss": "^6.0.0",
-    "stylelint-webpack-plugin": "^0.2.0",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.1.2",
+    "@storybook/addon-actions": "^4.0.0",
+    "@storybook/addon-links": "^4.0.0",
+    "@storybook/addons": "^4.0.0",
+    "@storybook/react": "^4.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-runtime": "^6.26.0",
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "chai": "^4.2.0",
+    "chokidar-cli": "^1.2.1",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "eslint": "^5.6.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "file-loader": "^2.0.0",
+    "flow-bin": "^0.83.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.0.0-rc.15",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "jest-pnp-resolver": "^1.0.1",
+    "jest-resolve": "^23.6.0",
+    "npm-run-all": "^4.1.3",
+    "prettier-eslint-cli": "^4.7.1",
+    "style-loader": "^0.23.0",
+    "styled-media-query": "^2.0.2",
+    "stylelint": "^9.7.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-config-suitcss": "^14.0.0",
+    "svg-url-loader": "^2.3.2",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "@babel/preset-flow": "^7.0.0",
+    "axios": "^0.18.0",
+    "babel-eslint": "^10.0.1",
+    "emotion": "^9.2.12",
+    "json-server": "^0.14.0",
+    "lodash.property": "^4.4.2",
+    "normalize.css": "^8.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "uuid": "^3.3.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ],
+      "@babel/preset-flow"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-flow-strip-types",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-runtime"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          "@babel/preset-react",
+          "@babel/preset-env",
+          "@babel/preset-flow"
+        ]
+      }
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 4 versions",
+    "not ie < 10"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [],
+    "setupTestFrameworkScriptFile": "<rootDir>/jest/setupTests.js",
+    "testMatch": [
+      "<rootDir>/src/**/?(*.)(spec).{js,jsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.css$": "<rootDir>/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "settings": {
+      "flowtype": {
+        "onlyFilesWithFlowAnnotation": true
+      },
+      "react": {
+        "version": "16.5.2",
+        "flowVersion": "0.83.0"
+      }
+    },
+    "env": {
+      "browser": true,
+      "jest": true,
+      "node": true
+    },
+    "extends": [
+      "standard",
+      "standard-react"
+    ],
+    "plugins": [
+      "flowtype",
+      "react"
+    ],
+    "rules": {
+      "jsx-quotes": [
+        2,
+        "prefer-double"
+      ],
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ],
+      "flowtype/boolean-style": [
+        2,
+        "boolean"
+      ],
+      "flowtype/define-flow-type": 1,
+      "flowtype/delimiter-dangle": [
+        2,
+        "always"
+      ],
+      "flowtype/generic-spacing": [
+        2,
+        "never"
+      ],
+      "flowtype/no-primitive-constructor-types": 2,
+      "flowtype/no-types-missing-file-annotation": 2,
+      "flowtype/no-weak-types": 2,
+      "flowtype/object-type-delimiter": [
+        2,
+        "comma"
+      ],
+      "flowtype/require-parameter-type": 2,
+      "flowtype/require-return-type": [
+        2,
+        "always",
+        {
+          "annotateUndefined": "never",
+          "excludeArrowFunctions": true
+        }
+      ],
+      "flowtype/require-valid-file-annotation": 2,
+      "flowtype/semi": [
+        2,
+        "never"
+      ],
+      "flowtype/space-after-type-colon": [
+        2,
+        "always"
+      ],
+      "flowtype/space-before-generic-bracket": [
+        2,
+        "never"
+      ],
+      "flowtype/space-before-type-colon": [
+        2,
+        "never"
+      ],
+      "flowtype/type-id-match": [
+        2,
+        "^([A-Z][a-z0-9]+)+Type$"
+      ],
+      "flowtype/union-intersection-spacing": [
+        2,
+        "always"
+      ],
+      "flowtype/use-flow-type": 1,
+      "flowtype/valid-syntax": 1
+    }
   }
 }
