@@ -1,0 +1,15 @@
+[ignore]
+
+[include]
+
+[libs]
+flow-typed
+
+[lints]
+
+[options]
+module.name_mapper='^@?\(\/?.*\)$' -> '<PROJECT_ROOT>/src/\1'
+esproposal.decorators=ignore
+
+[version]
+0.83.0
