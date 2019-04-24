@@ -12,4 +12,4 @@ module.name_mapper='^@?\(\/?.*\)$' -> '<PROJECT_ROOT>/src/\1'
 esproposal.decorators=ignore
 
 [version]
-0.83.0
+0.97.0

@@ -2,26 +2,28 @@
 import type { Element } from 'react'
 
 import React from 'react'
-import { css, cx } from 'emotion'
+import { css } from '@emotion/core'
 
 import { flexColumn, flexItem, flexCentered } from '@/styles'
 import { Button } from '@/components'
 import DeleteIcon from '@/icons/baseline-delete_forever-24px.svg'
 
 const deleteWrapper = css`
-  ${flexCentered} position: absolute;
+  position: absolute;
   width: 1.5em;
   height: 1.5em;
-  top: 0.2em;
+  top: 0.5em;
+  right: 0.3em;
+  ${flexCentered}
   line-height: 1em;
   font-size: 1em;
-  right: 0.2em;
   padding: 0;
   mask: url(${DeleteIcon}) no-repeat 50% 50%;
   background-color: grey;
   mask-size: cover;
-  ${!('ontouchstart' in (document.documentElement || {})) &&
-    `display: none;`}; // Only hide if it is NOT a touch screen
+  &:hover {
+    background-color: #c00;
+  }
 `
 
 const idea = css`
@@ -36,9 +38,6 @@ const idea = css`
 
   &:hover {
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-    & .${deleteWrapper} {
-      display: flex;
-    }
   }
 
   & :read-write {
@@ -150,16 +149,16 @@ export class Idea extends React.Component<IdeaPropsType, StateType> {
     const { id, body, title } = this.state
 
     return (
-      <div className={cx(flexColumn, idea)}>
+      <div css={[flexColumn, idea]}>
         <Button
           buttonType="danger"
-          className={deleteWrapper}
           onClick={this.onDelete}
+          className={deleteWrapper}
         />
         <input
           key={`title_${id || ''}`}
           placeholder="Title"
-          className={ideaTitle}
+          css={ideaTitle}
           value={title}
           onChange={this.saveIdea}
           onFocus={this.handleFocus}
@@ -169,7 +168,7 @@ export class Idea extends React.Component<IdeaPropsType, StateType> {
         <textarea
           key={`body_${id || ''}`}
           placeholder="Body"
-          className={cx(flexItem, ideaBody)}
+          css={[flexItem, ideaBody]}
           value={body}
           onChange={this.saveIdea}
           onFocus={this.handleFocus}

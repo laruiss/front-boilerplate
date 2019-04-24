@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 import { connect } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -9,7 +9,8 @@ import { addIdea, deleteIdea, saveIdea } from '@/store/ideas/ideas-actions'
 import { Button, Idea } from '@/components'
 
 const ideasClassName = css`
-  ${flexCentered} ${flexWrap}
+  ${flexCentered}
+  ${flexWrap}
   display: flex;
   height: 100%;
 `
@@ -18,7 +19,8 @@ const buttonWrapper = css`
   position: fixed;
   bottom: 1em;
   right: 1em;
-  ${flexCentered} width: 150px;
+  ${flexCentered}
+  width: 150px;
 `
 
 type IdeasPropsType = {
@@ -34,7 +36,7 @@ export const Ideas = ({
   ideas,
   saveIdea,
 }: IdeasPropsType) => (
-  <div className={ideasClassName}>
+  <div css={ideasClassName}>
     {ideas &&
       Array.isArray(ideas.list) &&
       ideas.list.map((idea: IdeaDataType) => (
@@ -45,7 +47,7 @@ export const Ideas = ({
           onDelete={deleteIdea}
         />
       ))}
-    <div className={buttonWrapper}>
+    <div css={buttonWrapper}>
       <Button
         buttonType="success"
         onClick={() =>

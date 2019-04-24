@@ -1,13 +1,12 @@
 // @flow
 import React from 'react'
-import { cx } from 'emotion'
 
 import { dangerButton, successButton, warningButton } from '@/styles'
 
 type ButtonPropsType = {
   buttonType: 'danger' | 'success' | 'warning',
   children: React$Node,
-  className: string,
+  className: object,
   onClick: () => void,
 }
 
@@ -17,13 +16,13 @@ export default ({
   className,
   onClick,
 }: ButtonPropsType) => {
-  const classNames = cx({
-    [`${dangerButton}`]: buttonType === 'danger',
-    [`${successButton}`]: buttonType === 'success',
-    [`${warningButton}`]: buttonType === 'warning',
-  })
+  const classNames = [
+    buttonType === 'danger' && dangerButton,
+    buttonType === 'success' && successButton,
+    buttonType === 'warning' && warningButton,
+  ]
   return (
-    <button className={`${classNames} ${className}`} onClick={onClick}>
+    <button css={[classNames, className]} onClick={onClick}>
       {children}
     </button>
   )

@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { cx } from 'emotion'
 
 import { fullHeight, maxWidth } from './styles'
 import Ideas from './components/Ideas'
@@ -18,7 +17,7 @@ export class App extends Component<AppPropsType> {
 
   render (): React$Node {
     return (
-      <div className={cx(maxWidth, fullHeight)}>
+      <div css={[maxWidth, fullHeight]}>
         <Ideas />
       </div>
     )
