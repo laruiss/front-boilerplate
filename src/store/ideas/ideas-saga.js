@@ -1,7 +1,6 @@
 // @flow
 import _property from 'lodash.property'
-import { delay } from 'redux-saga'
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, delay, put, takeLatest } from 'redux-saga/effects'
 
 import {
   createIdea,
@@ -75,7 +74,7 @@ export function * saveIdeaRequest ({
     idea: { localOnly: isCreation, ...idea },
   },
 }: SaveIdeaActionType): Generator<*, *, *> {
-  yield call(delay, 500)
+  yield delay(500)
   const saveIdea = isCreation ? createIdea : updateIdea
   try {
     const savedIdea = yield call(saveIdea, { ...idea, new: undefined })
