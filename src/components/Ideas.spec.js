@@ -19,6 +19,6 @@ describe('Ideas', () => {
     const wrapper = shallow(<Ideas ideas={{ list: ideas }} />)
 
     // Then
-    expect(wrapper.find(Idea)).to.have.property('length', 2)
+    expect(wrapper.find(Idea)).to.have.lengthOf(2)
   })
 })

@@ -15,7 +15,7 @@ describe('Idea', () => {
     const wrapper = mount(<Idea title={title} body={body} />)
 
     // Then
-    expect(wrapper.find('div input')).to.have.property('length', 1)
+    expect(wrapper.find('div input')).to.have.lengthOf(1)
     expect(
       wrapper
         .find('div input')
@@ -23,7 +23,7 @@ describe('Idea', () => {
         .prop('value')
     ).to.eql(title)
 
-    expect(wrapper.find('div textarea')).to.have.property('length', 1)
+    expect(wrapper.find('div textarea')).to.have.lengthOf(1)
     expect(wrapper.find('div textarea').text()).to.eql(body)
   })
 })
